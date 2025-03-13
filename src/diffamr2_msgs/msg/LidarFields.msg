@@ -1,0 +1,2 @@
+bool protective
+bool warning

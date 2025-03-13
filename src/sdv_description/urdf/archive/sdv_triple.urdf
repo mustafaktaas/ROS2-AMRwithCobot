@@ -1,0 +1,211 @@
+<?xml version = "1.0" ?>
+<robot
+  name="ford">
+  <link name="base_link"> </link>
+
+  <link name="base_footprint"> </link>
+
+  <joint name="base_footprint_joint" type="fixed">
+	<origin xyz="0 0 0" rpy="0 0 0" /> <!--origin xyz="0.25125 0 0" rpy="0 0 0" /-->
+	<parent link="base_footprint"/>
+	<child link="base_link"/>
+  </joint>
+
+   <link name="imu_link"> </link>
+  <joint name="imu_joint" type="fixed">
+	<origin xyz="0 0 0" rpy="0 0 0" />
+	<parent link="base_footprint"/>
+	<child link="imu_link"/>
+  </joint>
+
+ <link
+    name="rear_right">
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.08" radius="0.1"/>           
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="r_r_h"
+    type="continuous">
+    <origin
+      xyz="0 -0.362474949366141 0.1"
+      rpy="3.14159265358979 -1.23330957383996 -3.14159265358979" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="rear_right" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+    <link
+    name="rear_left">
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>       
+          <cylinder length="0.08" radius="0.1"/>       
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="r_l_h"
+    type="continuous">
+    <origin
+      xyz="0 0.362474949366095 0.1"
+      rpy="3.14159265358979 1.32303231890829 3.14159265358979" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="rear_left" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+  
+  <link name="frontlidar"> </link>
+  <joint
+    name="lidar_h"
+    type="fixed">
+    <origin
+      xyz="0.72 -0.501 0"
+      rpy="0 0 -0.7853" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="frontlidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link name="rearlidar"> </link>
+  <joint
+    name="lidar_h1"
+    type="fixed">
+    <origin
+      xyz="-0.23 0.501 0"
+      rpy="0 0 2.3561" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="rearlidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <link name="midlidar"> </link>
+  <joint
+    name="lidar_h3"
+    type="fixed">
+    <origin
+      xyz="-0.145 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="midlidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <!-- Realsense -->
+  <joint name="camera_joint" type="fixed">
+    <origin
+      xyz="0.805 0 0.51"
+      rpy="0 0 0" />
+      <parent link="base_footprint"/>
+      <child link="camera_link" />
+    </joint>
+
+    <link name="camera_link">
+      <visual>
+      <origin xyz="0 .0275 0.0195" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.105 0.039 0.019"/>
+          <!--<mesh filename="package://realsense_ros_camera/meshes/r430/r430.dae" />-->
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0.0 0.0 0.0195" rpy="0 0 0"/>
+        <geometry>
+        <box size="0.019 0.105 0.039"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <!-- The following are not reliable values, and should not be used for modeling -->
+        <mass value="0.564" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.003881243" ixy="0.0" ixz="0.0" iyy="0.000498940" iyz="0.0" izz="0.003879257" />
+      </inertial>
+    </link>
+   
+    <!-- camera depth joints and links -->
+    <joint name="camera_depth_joint" type="fixed">
+      <origin xyz="0.0 -0.035 0.028" rpy="0 0 0"/>
+      <parent link="camera_link"/>
+      <child link="camera_depth_frame" />
+    </joint>
+    <link name="camera_depth_frame"/>
+
+    <joint name="camera_depth_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570796327 0 -1.570796327" />
+      <parent link="camera_depth_frame" />
+      <child link="camera_depth_optical_frame" />
+    </joint>
+    <link name="camera_depth_optical_frame"/>
+      
+    <!-- camera left IR joints and links -->
+    <joint name="camera_left_ir_joint" type="fixed">
+      <origin xyz="0 -0.025 0" rpy="0 0 0" />
+      <parent link="camera_depth_frame" />
+      <child link="camera_left_ir_frame" />
+    </joint>
+    <link name="camera_left_ir_frame"/>
+
+    <joint name="camera_left_ir_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570796327 0 -1.570796327" />
+      <parent link="camera_left_ir_frame" />
+      <child link="camera_left_ir_optical_frame" />
+    </joint>
+    <link name="camera_left_ir_optical_frame"/>
+
+    <!-- camera right IR joints and links -->
+    <joint name="camera_right_ir_joint" type="fixed">
+      <origin xyz="0 0.025 0" rpy="0 0 0" />
+      <parent link="camera_depth_frame" />
+      <child link="camera_right_ir_frame" />
+    </joint>
+    <link name="camera_right_ir_frame"/>
+
+    <joint name="camera_right_ir_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570796327 0 -1.570796327" />
+      <parent link="camera_right_ir_frame" />
+      <child link="camera_right_ir_optical_frame" />
+    </joint>
+    <link name="camera_right_ir_optical_frame"/>
+
+    <!-- camera fisheye joints and links -->
+    <joint name="camera_fisheye_joint" type="fixed">
+      <origin xyz="0 0.042 0" rpy="0 0 0" />
+      <parent link="camera_depth_frame" />
+      <child link="camera_fisheye_frame" />
+    </joint>
+    <link name="camera_fisheye_frame"/>
+
+    <joint name="camera_fisheye_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570796327 0 -1.570796327" />
+      <parent link="camera_fisheye_frame" />
+      <child link="camera_fisheye_optical_frame" />
+    </joint>
+    <link name="camera_fisheye_optical_frame"/>
+  <!-- /Realsense -->
+</robot>
+
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="kutu">
+     <static>true</static>
+     <pose>0 0 0.215 0 0 0</pose>
+     <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://kutu/meshes/kutu3.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://kutu/meshes/kutu3.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://kutu/materials/scripts</uri>
+            <uri>model://kutu/materials/textures</uri>
+            <name>Kutu/Ahsap</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

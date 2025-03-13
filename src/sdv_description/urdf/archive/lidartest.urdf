@@ -1,0 +1,69 @@
+<?xml version = "1.0" ?>
+<robot
+  name="ford">
+  
+   <link name="base_footprint"></link>
+
+ 
+  <link
+    name="frontlidar">
+    <inertial>
+      <origin
+        xyz="3.96242181061046E-06 0.0297127391537713 -0.000648809548592366"
+        rpy="0 0 0" />
+      <mass
+        value="0.367833721247089" />
+      <inertia
+        ixx="0.000205756604787201"
+        ixy="2.78900753044071E-08"
+        ixz="4.74805380670418E-08"
+        iyy="0.000127405862881745"
+        iyz="1.04061737415867E-06"
+        izz="0.000200365232614641" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sdv_description/urdf/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sdv_description/urdf/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="lidar_h"
+    type="continuous">
+    <origin
+      xyz="0.4125 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="frontlidar" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+
+
+
+
+
+</robot>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="plot_factory_load">
+     <static>true</static>
+     <pose>0 0 0.6 0 0 0</pose>
+     <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://plot_factory_load/meshes/plotyuk.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://plot_factory_load/meshes/plotyuk.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

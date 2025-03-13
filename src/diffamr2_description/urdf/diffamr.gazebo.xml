@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<robot>
+    <gazebo reference="base_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="front_sicknanoscan">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="rear_sicknanoscan">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="d435i">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="t265">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="left_wheel">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="right_wheel">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="back_left_caster_left_wheel">
+        <material>Gazebo/Red</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
+
+    <gazebo reference="back_right_caster_left_wheel">
+        <material>Gazebo/Red</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
+
+    <gazebo reference="front_left_caster_left_wheel">
+        <material>Gazebo/Red</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
+
+    <gazebo reference="front_right_caster_left_wheel">
+        <material>Gazebo/Red</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
+
+    <gazebo reference="back_left_caster_right_wheel">
+        <material>Gazebo/Red</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
+
+    <gazebo reference="back_right_caster_right_wheel">
+        <material>Gazebo/Red</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
+
+    <gazebo reference="front_left_caster_right_wheel">
+        <material>Gazebo/Red</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
+
+    <gazebo reference="front_right_caster_right_wheel">
+        <material>Gazebo/Red</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
+
+    <!--d435i plugin-->
+    
+    <gazebo reference="d435i">
+        <sensor type="depth" name="camera">
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>20.0</update_rate>
+            <camera>
+                <horizontal_fov>1.65806</horizontal_fov>
+                <image>
+                    <width>1280</width>
+                    <height>720</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.05</near>
+                    <far>8</far>
+                </clip>
+            </camera>
+            <plugin name="kinect_camera_controller" filename="libgazebo_ros_camera.so">
+                <cameraName>camera</cameraName>
+                <alwaysOn>true</alwaysOn>
+                <updateRate>10</updateRate>
+                <imageTopicName>rgb/image_raw</imageTopicName>
+                <depthImageTopicName>depth/image_raw</depthImageTopicName>
+                <pointCloudTopicName>depth/points</pointCloudTopicName>
+                <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+                <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+                <frameName>d435i</frameName>
+                <baseline>0.1</baseline>
+                <distortion_k1>0.0</distortion_k1>
+                <distortion_k2>0.0</distortion_k2>
+                <distortion_k3>0.0</distortion_k3>
+                <distortion_t1>0.0</distortion_t1>
+                <distortion_t2>0.0</distortion_t2>
+                <pointCloudCutoff>0.1</pointCloudCutoff>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <!--T265 camera plugin for imu-->
+
+    <!-- <gazebo reference="t265">
+        <gravity>true</gravity>
+        <sensor name="imu_sensor" type="imu">
+            <always_on>true</always_on>
+            <update_rate>100</update_rate>
+            <visualize>true</visualize>
+            <topic>__default_topic__</topic>
+            <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+                <topicName>t265/imu</topicName>
+                <bodyName>t265</bodyName>
+                <updateRateHZ>10.0</updateRateHZ>
+                <gaussianNoise>0.0</gaussianNoise>
+                <xyzOffset>0 0 0</xyzOffset>
+                <rpyOffset>0 0 0</rpyOffset>
+                <frameName>t265</frameName>
+                <initialOrientationAsReference>false</initialOrientationAsReference>
+            </plugin>
+            <pose>0 0 0 0 0 0</pose>
+        </sensor>
+    </gazebo> -->
+    <!-- <gazebo>
+        <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
+        <robotNamespace>/</robotNamespace>
+        <updateRate>50.0</updateRate>
+        <bodyName>base_link</bodyName>
+        <topicName>imu/data</topicName>
+        <accelDrift>0.005 0.005 0.005</accelDrift>
+        <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
+        <rateDrift>0.005 0.005 0.005 </rateDrift>
+        <rateGaussianNoise>0.005 0.005 0.005 </rateGaussianNoise>
+        <headingDrift>0.005</headingDrift> -->
+       
+        <gazebo>
+            <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+            <alwaysOn>true</alwaysOn>
+            <bodyName>base_link</bodyName>
+            <topicName>imu/data</topicName>
+            <serviceName>imu_service</serviceName>
+            <gaussianNoise>0.0</gaussianNoise>
+            <updateRate>20.0</updateRate>
+            </plugin>
+        </gazebo>
+
+
+    <!--t265 plugin for fisheye-->
+
+    <!--gazebo reference="t265">
+      <sensor name="camera" type="wideanglecamera">
+        <camera>
+          <horizontal_fov>6.283</horizontal_fov>
+          <image>
+            <width>800</width>
+            <height>848</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <lens>
+            <type>custom</type>
+            <custom_function>
+              <c1>1.05</c1>
+              <c2>4</c2>
+              <f>1.0</f>
+              <fun>tan</fun>
+            </custom_function>
+            <scale_to_hfov>true</scale_to_hfov>
+            <cutoff_angle>3.1415</cutoff_angle>
+            <env_texture_size>512</env_texture_size>
+          </lens>
+          <always_on>true</always_on>
+          <update_rate>30</update_rate>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>30</updateRate>
+          <cameraName>camera/t265</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>t265</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>-0.007419134024530649</distortionK1>
+          <distortionK2>0.041209351271390915</distortionK2>
+          <distortionK3>-0.03811917081475258</distortionK3>
+          <distortionT1>0.006366158835589886</distortionT1>
+          <distortionT2>0.0</distortionT2>
+          <CxPrime>416.00531005859375</CxPrime>
+          <Cx>16.00531005859375</Cx>
+          <Cy>403.38909912109375</Cy>
+        </plugin>
+      </sensor>
+    </gazebo-->
+
+    <!-- Sick nanoscan Lidar -->
+    <gazebo reference="front_sicknanoscan"> 
+        <sensor name="lidar" type="ray">
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>30</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>720</samples>
+                        <resolution>1</resolution>
+                        <!-- <min_angle>-2.35619449</min_angle>
+                        <max_angle>2.35619449</max_angle> -->
+                        <min_angle>-2.05619449</min_angle>
+                        <max_angle>2.05619449</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.05</min>
+                    <max>40.0</max>
+                    <resolution>0.2</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+            <plugin name="front_scan" filename="libgazebo_ros_ray_sensor.so">
+                <ros>
+                    <namespace>front_scan</namespace>
+                    <remapping>~/out:=front_scan</remapping>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>front_sicknanoscan</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <gazebo reference="rear_sicknanoscan"> 
+        <sensor name="lidar2" type="ray">
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>30</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>720</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-2.35619449</min_angle>
+                        <max_angle>2.35619449</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.05</min>
+                    <max>40.0</max>
+                    <resolution>0.2</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+            <plugin name="rear_scan" filename="libgazebo_ros_ray_sensor.so">
+                <ros>
+                    <namespace>rear_scan</namespace>
+                    <remapping>~/out:=rear_scan</remapping>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>rear_sicknanoscan</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+</robot>

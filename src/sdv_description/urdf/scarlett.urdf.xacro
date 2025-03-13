@@ -1,0 +1,81 @@
+<robot name="scarlett" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:property name="height" value="0.285"/>
+
+    <link name="base_footprint">
+    </link>
+
+
+
+    <joint name="motor_wheel1" type="continuous">
+        <origin xyz="0 -0.39995 ${height}" rpy="${-pi / 2.0} 0 0"/>
+        <parent link="base_footprint"/>
+        <child link="motor_wheel1_link"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+    <link name="motor_wheel1_link">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </link>
+
+
+
+    <joint name="motor_wheel2" type="continuous">
+        <origin xyz="0 0.39995 ${height}" rpy="${-pi / 2.0} 0 0"/>
+        <parent link="base_footprint"/>
+        <child link="motor_wheel2_link"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+    <link name="motor_wheel2_link">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </link>
+
+
+
+    <joint name="base_footprint_frontlidar" type="fixed">
+        <origin xyz="0.71516 0.51513 ${height}" rpy="0 0 ${pi / 4.0}"/>
+        <parent link="base_footprint"/>
+        <child link="frontlidar"/>
+    </joint>
+    <link name="frontlidar">
+    </link>
+
+    <joint name="base_footprint_virtuallidar" type="fixed">
+        <origin xyz="0 0 ${height}" rpy="0 0 0"/>
+        <parent link="base_footprint"/>
+        <child link="virtuallidar"/>
+    </joint>
+    <link name="virtuallidar">
+    </link>
+
+
+
+
+    <joint name="base_footprint_rearlidar" type="fixed">
+        <origin xyz="-0.71516 -0.51513 ${height}" rpy="0 0 ${-135.0 * pi / 180.0}"/>
+        <parent link="base_footprint"/>
+        <child link="rearlidar"/>
+    </joint>
+    <link name="rearlidar">
+    </link>
+
+
+    <joint name="base_footprint_imu" type="fixed">
+        <!-- <origin xyz="-0.685 ${0.487 + 0.098} ${height}" rpy="0 0 0"/> -->
+        <!-- origin xyz="-0.3875 ${0.487 + 0.098} ${height}" rpy="0 0 0"/  Last Modified -->
+        <origin xyz="0.37 0.58 ${height}" rpy="0 0 0"/>
+        <parent link="base_footprint"/>
+        <child link="imu_link"/>
+    </joint>
+    <link name="imu_link">
+    </link>
+
+
+   <joint name="base_footprint_cam" type="fixed">
+        <origin xyz="0.71 0 0.355" rpy="${-pi/2} 0 ${-pi/2}"/>
+        <parent link="base_footprint"/>
+        <child link="front_cam"/>
+    </joint>
+    <link name="front_cam">
+    </link>
+
+
+</robot>

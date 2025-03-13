@@ -1,0 +1,4 @@
+bool finish_map
+bool cancel_map
+---
+bool result

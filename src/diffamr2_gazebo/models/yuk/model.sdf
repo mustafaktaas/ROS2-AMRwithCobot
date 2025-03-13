@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="yuk">
+   <static>false</static>
+   <pose>0 0 0.0 0 0 0</pose>
+    <link name="link">
+     
+      <collision name="surface">
+        <geometry>
+          <mesh>
+            <uri>model://yuk/meshes/YUK2.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <collision name="base">
+        <geometry>
+          <mesh>
+           <uri>model://yuk/meshes/YUK2.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0.425000 0.550000 0.431822 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx> 0.011384</ixx>
+          <ixy>0.000000</ixy>
+          <ixz>0.000000</ixz>
+          <iyy>0.007729</iyy>
+          <iyz>0.000000 </iyz>
+          <izz>0.016046 </izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://yuk/meshes/YUK2.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Yuk</name>
+            <uri>model://yuk/materials/scripts</uri>
+            <uri>model://yuk/materials/textures</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,15 @@
+material QRsarjünitesi
+{
+  technique
+  {
+    pass
+    {      
+      texture_unit
+      {
+        texture qr.png
+      
+      }            
+    
+    }
+  }
+}

@@ -1,0 +1,15 @@
+material Station3
+{
+  technique
+  {
+    pass
+    {      
+      texture_unit
+      {
+        texture qr-code_station3.png
+      
+      }            
+    
+    }
+  }
+}

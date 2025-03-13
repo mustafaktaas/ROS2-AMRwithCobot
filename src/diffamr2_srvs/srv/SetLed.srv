@@ -1,0 +1,20 @@
+# Servis, diffamr robotunun servislerini kontrol etmek için oluşturulmuştur.
+#
+# Bu hizmet iki farklı istek alır. Bunlar:
+#
+# color         Led rengi
+# isFlashing    yanıp sönüyor
+
+# Geçerli fonksiyon değerleri
+
+# Valid values for led request
+
+
+#Request fields
+int16 r 
+int16 g 
+int16 b 
+
+bool isflashing
+---
+bool success

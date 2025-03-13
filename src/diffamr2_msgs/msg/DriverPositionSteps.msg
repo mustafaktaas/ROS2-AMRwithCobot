@@ -1,0 +1,5 @@
+int32 index
+float64 mot1_pos_steps
+float64 mot2_pos_steps
+float64 mot1_vel_val
+float64 mot2_vel_val

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="plot_factory_station1">
+     <static>true</static>
+     <pose>0 0 0.4 0 0 0</pose>
+     <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://plot_factory_station1/meshes/plotqr.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://plot_factory_station1/meshes/plotqr.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Station1</name>
+            <uri>model://plot_factory_station1/materials/scripts</uri>
+            <uri>model://plot_factory_station1/materials/textures</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

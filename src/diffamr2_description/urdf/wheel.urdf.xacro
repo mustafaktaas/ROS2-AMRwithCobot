@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="wheel">
+<xacro:property name="PI" value="3.1415926535897931"/>
+
+    <xacro:macro name="wheel" params="prefix reflect">
+        <link name="${prefix}_wheel">
+            <visual>
+                <origin rpy="0 0 0" xyz="0 0 0"/> 
+                <geometry>
+                    <mesh filename="package://diffamr2_description/meshes/wheel.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <material name="red"/>
+            </visual>
+            
+            <xacro:if value="${prefix == 'left'}">
+                <inertial>
+                    <origin rpy="0 0 0" xyz="2.214041822411276e-14 0.02413559463226142 -1.9935550606142716e-14"/>
+                    <!-- <mass value="2.36419"/> -->
+                    <mass value="3"/>
+                    <inertia ixx="0.006005" ixy="0.00" ixz="-0.0" iyy="0.009151" iyz="-0.0" izz="0.006005"/>
+                </inertial>
+
+                <collision>
+                    <origin rpy="${PI/2} 0 0" xyz="2.214041822411276e-14 0.02413559463226142 -1.9935550606142716e-14"/>
+                    <geometry>
+                        <cylinder radius="0.08" length="0.06"/>
+                    </geometry>
+                </collision>
+            </xacro:if>
+
+            <xacro:if value="${prefix == 'right'}">
+                <inertial>
+                    <origin rpy="0 0 0" xyz="2.214041822411276e-14 -0.024135594632261392 -1.9935550606142716e-14"/>
+                    <!-- <mass value="2.36419"/> -->
+                    <mass value="3"/>
+                    <inertia ixx="0.006005" ixy="0.0" ixz="-0.0" iyy="0.009151" iyz="-0.0" izz="0.006005"/>
+                </inertial>
+  
+                <collision>
+                    <origin rpy="${PI/2} 0 0" xyz="2.214041822411276e-14 -0.024135594632261392 -1.9935550606142716e-14"/>
+                    <geometry>
+                        <cylinder radius="0.08" length="0.06"/>
+                    </geometry>
+                </collision>
+            </xacro:if>
+        </link>
+
+        <joint name="${prefix}_wheel_joint" type="continuous">
+            <axis xyz="0 1 0" rpy="0 0 0"/>
+            <parent link="base_link"/>
+            <child link="${prefix}_wheel"/>
+            <origin xyz="0 ${reflect*-wheel_separation/2} -0.02" rpy="0 0 0"/>
+        </joint>
+
+        <transmission name="${prefix}_wheel_trans" type="SimpleTransmission">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="${prefix}_wheel_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="${prefix}_wheel">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+    </xacro:macro>
+
+</robot>

@@ -1,0 +1,117 @@
+<?xml version = "1.0" ?>
+<robot
+  name="ford">
+ 
+  <link name="base_footprint"> </link>
+
+  <link name="base_link"> </link>
+
+  <link name="frontlidar"> </link>
+
+  <link name="rotatelidar"> </link>
+
+
+  <link name="visionaryt"> </link>
+
+  <link name="motor_link"> </link>
+
+  <link name="connector_bottom"> </link>
+
+  <link name="handle_link"> </link>
+
+
+  <joint name="base_footprint_joint" type="fixed">
+	<origin xyz="0.25125 0 0" rpy="0 0 0" />
+	<parent link="base_footprint"/>
+	<child link="base_link"/>
+  </joint>
+
+
+  <joint
+    name="lidar_h"
+    type="fixed">
+    <origin
+      xyz="0.385 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="frontlidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <joint
+    name="visiont"
+    type="fixed">
+    <origin
+      xyz="0.34 0 0.68"
+      rpy="1.54 0 1.54" />
+    <parent
+      link="base_link" />
+    <child
+      link="visionaryt" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <joint
+    name="chasis_connection"
+    type="fixed">
+    <origin
+      xyz="0.465 0.1345 0.525"
+      rpy="0 0 1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="handle_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+ <joint
+    name="chasis_connection2"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="handle_link" />
+    <child
+      link="motor_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+  <joint
+    name="lidar_motor_connector"
+    type="fixed">
+    <origin
+      xyz="0 0.065 0.0394"
+      rpy="0 0 -1.57" />
+    <parent
+      link="connector_bottom" />
+    <child
+      link="rotatelidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+<joint
+    name="motor_mill_test"
+    type="fixed">
+    <origin
+      xyz="0.05 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="motor_link" />
+    <child
+      link="connector_bottom" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+</robot>
+

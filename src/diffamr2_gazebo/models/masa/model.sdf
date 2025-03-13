@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="masa">
+    <static>true</static>
+    <pose>0 0 0.567 0 0 0</pose>
+    <link name="link">
+      <collision name="surface">
+       
+        <geometry>
+          <mesh>
+            <uri>model://masa/meshes/masa1.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <collision name="column">
+        
+        <geometry>
+          <mesh>
+            <uri>model://masa/meshes/masa1.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <collision name="base">
+        
+        <geometry>
+          <mesh>
+            <uri>model://masa/meshes/masa1.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://masa/meshes/masa1.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

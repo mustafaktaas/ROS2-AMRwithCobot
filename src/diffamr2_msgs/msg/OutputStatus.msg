@@ -1,0 +1,12 @@
+bool output00
+bool output01
+bool output02
+bool output03
+bool output04
+bool output05
+bool output06
+bool output07
+bool output08
+bool output09
+bool output10
+bool output11

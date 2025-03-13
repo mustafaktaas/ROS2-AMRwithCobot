@@ -1,0 +1,15 @@
+material Kutu/Ahsap
+{
+  technique
+  {
+    pass
+    {      
+      texture_unit
+      {
+        texture ahsap.jpg
+        
+      }            
+    
+    }
+  }
+}

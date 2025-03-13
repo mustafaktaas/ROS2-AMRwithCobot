@@ -1,0 +1,15 @@
+material Yuk
+{
+  technique
+  {
+    pass
+    {      
+      texture_unit
+      {
+        texture ahsap.jpg
+      
+      }            
+    
+    }
+  }
+}
