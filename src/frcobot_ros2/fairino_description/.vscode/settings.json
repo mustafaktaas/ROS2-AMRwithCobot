@@ -3,8 +3,8 @@
         "/home/developer/ros2_ws/install/turtlesim/local/lib/python3.10/dist-packages",
         "/home/developer/ros2_ws/install/fairv5_python/lib/python3.10/site-packages",
         "/home/developer/ros2_ws/install/fairino_msgs/local/lib/python3.10/dist-packages",
-        "/home/developer/ros2_ws/install/diffamr2_srvs/local/lib/python3.10/dist-packages",
-        "/home/developer/ros2_ws/install/diffamr2_msgs/local/lib/python3.10/dist-packages",
+        "/home/developer/ros2_ws/install/sdv2_srvs/local/lib/python3.10/dist-packages",
+        "/home/developer/ros2_ws/install/sdv2_msgs/local/lib/python3.10/dist-packages",
         "/home/developer/ros2_ws/install/controller_manager/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
@@ -13,8 +13,8 @@
         "/home/developer/ros2_ws/install/turtlesim/local/lib/python3.10/dist-packages",
         "/home/developer/ros2_ws/install/fairv5_python/lib/python3.10/site-packages",
         "/home/developer/ros2_ws/install/fairino_msgs/local/lib/python3.10/dist-packages",
-        "/home/developer/ros2_ws/install/diffamr2_srvs/local/lib/python3.10/dist-packages",
-        "/home/developer/ros2_ws/install/diffamr2_msgs/local/lib/python3.10/dist-packages",
+        "/home/developer/ros2_ws/install/sdv2_srvs/local/lib/python3.10/dist-packages",
+        "/home/developer/ros2_ws/install/sdv2_msgs/local/lib/python3.10/dist-packages",
         "/home/developer/ros2_ws/install/controller_manager/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"

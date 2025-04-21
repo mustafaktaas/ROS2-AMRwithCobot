@@ -1,3 +1,0 @@
-bool isestopenable
-bool ismotorenable
-bool isfrontbumperenable

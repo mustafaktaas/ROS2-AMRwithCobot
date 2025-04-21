@@ -1,4 +1,0 @@
-int8 dock_id
----
-bool status
-string message

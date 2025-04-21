@@ -1,2 +1,0 @@
-bool protective
-bool warning

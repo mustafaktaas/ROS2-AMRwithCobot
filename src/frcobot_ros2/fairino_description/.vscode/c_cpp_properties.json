@@ -8,8 +8,8 @@
       "includePath": [
         "/home/developer/ros2_ws/install/turtlesim/include/**",
         "/home/developer/ros2_ws/install/fairino_msgs/include/**",
-        "/home/developer/ros2_ws/install/diffamr2_srvs/include/**",
-        "/home/developer/ros2_ws/install/diffamr2_msgs/include/**",
+        "/home/developer/ros2_ws/install/sdv2_srvs/include/**",
+        "/home/developer/ros2_ws/install/sdv2_msgs/include/**",
         "/opt/ros/humble/include/**",
         "/home/developer/ros2_ws/src/frcobot_ros2/fairino_hardware/include/**",
         "/home/developer/ros2_ws/src/ros_tutorials/turtlesim/include/**",
