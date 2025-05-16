@@ -7,7 +7,7 @@ Performing certain transfer operations with a collaborative robot (cobot) mounte
 This project integrates a Fairino collaborative robot with an autonomous mobile robot to perform transfer operations using ROS2. The system leverages the Fairino cobot for precise manipulation and the AMR for mobility.
 
 ### Application Image
-![Application Image](./photos/application_image.jpg)
+![Application Image](./photos/amrwithcobot.png)
 
 ## Fairino Cobot Resources
 
